@@ -19,6 +19,13 @@ function ChatArea({ socket }) {
 		(mem) => mem._id !== user._id
 	);
 
+	const handleKeypress = e => {
+		//it triggers by pressing the enter key
+	if (e.keyCode === 13) {
+		sendNewMessage();
+	}
+};
+	
 	const sendNewMessage = async () => {
 		try {
 			// dispatch(ShowLoader());
@@ -140,6 +147,7 @@ function ChatArea({ socket }) {
 			</div>
 
 			{/* 3rd part chat imput */}
+			
 			<div>
 				<div className="h-18 rounded-xl border-indigo-600 shadow border flex justify-between p-2 items-center">
 					<input
@@ -148,6 +156,7 @@ function ChatArea({ socket }) {
 						className="w-[90%] border-0 h-full rounded-xl focus:border-none"
 						value={newMessage}
 						onChange={(e) => setNewMessage(e.target.value)}
+						onKeyDown={handleKeypress}
 					/>
 					<button
 						className="bg-green-500 text-white py-1 px-6 rounded-md h-max shadow"
