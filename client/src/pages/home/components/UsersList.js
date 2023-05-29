@@ -67,7 +67,7 @@ function UsersList({ searchKey, setSearchKey }) {
 				return (
 					<div
 						className={`shadow-sm border p-3 rounded-xl bg-white flex justify-between items-center cursor-pointer w-full
-						${getIsSelectedChatOrNot(userObj) && 'bg-green-400'}
+						${getIsSelectedChatOrNot(userObj) && 'border-primary border-2'}
 						`}
 						key={userObj._id}
 						onClick={() => openChat(userObj._id)}
